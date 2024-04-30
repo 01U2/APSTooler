@@ -24,7 +24,3 @@ Refer to the documentation for detailed usage instructions and examples.
 ## Contributing
 
 Contributions are welcome!
-
-## License
-
-This project is private and for WSP internal use only
