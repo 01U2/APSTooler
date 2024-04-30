@@ -1,6 +1,6 @@
 # APSTooler
 
-The APSTools toolkit is a Python toolkit designed to interact with the Autodesk BIM 360 and Autodesk Construction cloud (ACC) platform's API for managing projects, folders, and documents.
+The APSTooler toolkit is a Python toolkit designed to interact with the Autodesk BIM 360 and Autodesk Construction cloud (ACC) platform's API for managing projects, folders, and documents.
 
 ## Features
 
