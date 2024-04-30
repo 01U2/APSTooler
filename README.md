@@ -24,4 +24,3 @@ Refer to the documentation for detailed usage instructions and examples.
 ## Contributing
 
 Contributions are welcome!
-
