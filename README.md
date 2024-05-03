@@ -13,9 +13,8 @@ The APSTooler toolkit is a Python toolkit designed to interact with the Autodesk
 
 To use the APSTooler toolkit, follow these steps:
 
-1. Clone the repository to your local machine.
-2. Install the required dependencies by running `pip install -r requirements.txt`.
-3. Set up your environment variables for authentication.
+1. install using `pip install APSTooler`
+3. Add a config.json file and define `APS Client ID`  and `APS Client Secret`
 
 ## Usage
 
