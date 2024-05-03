@@ -13,11 +13,12 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/01U2/APSTooler.git",
     classifiers=[
-        "Programming Language :: Python :: 3",
-        "License :: MIT",
+        "Programming Language :: Python :: 3.9",
+        "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    package_dir={"": "APSTooler"},
+    keywords=["Autodesk", "APS", "forge", "Python"],
+    license= "LICENSE",
     packages=setuptools.find_packages(where="APSTooler"),
     python_requires=">=3.9",
     install_requires=['requests']

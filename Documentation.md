@@ -15,6 +15,14 @@ pip install APSTooler
 - Clone the repository to your local machine.
 - Install the required dependencies by running `pip install -r requirements.txt`.
 - Set up your environment variables for authentication.
+- - create a file `config.json`, and add:
+```json
+{
+	"APS_CLIENT_ID":	"your client id",
+  	"APS_CLIENT_SECRET": 		"your client secret"
+}
+```
+note: config.json is already added to your .gitignore.
 
 ## Usage
 

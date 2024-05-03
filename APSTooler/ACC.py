@@ -1,5 +1,9 @@
 """
-Documentation
+## Disclaimer
+
+The [Your Python Toolkit Name] ("the toolkit") is provided without any warranties. Its use is at your own risk, and the creator accepts no liability for any damages arising from its use. The toolkit is for informational purposes only and should not be considered professional advice. By using the toolkit, you agree to indemnify the creator against any claims or damages. If you do not agree, please refrain from using the toolkit.
+
+## Documentation
 
 The code is  interface for interacting with the Autodesk Construction Cloud (ACC) API. It includes methods for retrieving information about hubs, projects, folders, and models within a BIM 360 project. Here's a breakdown of its functionality:
 
@@ -32,7 +36,7 @@ class ACC:
         response.raise_for_status()
         return response.json()
     
-    def get_hubs(self): #programme added to a single hub, thus it will return one hub.
+    def get_hubs(self):
         url = f"{self.host}/project/v1/hubs"
         hubs_data = self._get(url)
         hub = hubs_data[0] 
@@ -60,8 +64,7 @@ class ACC:
         for root_folder in data:
             if root_folder['attributes']['displayName'] == 'Project Files' :
                 return project_id, root_folder['id']            
-        raise ValueError("Error getting folder ID") #return "Error getting folder ID"   
-        
+        raise ValueError("Error getting folder ID")
     
     def get_folder_details(self, folder_name):
         project_id, root_folder_id = self.get_root_folder_id()
