@@ -13,7 +13,7 @@ The APSTooler is a Python toolkit designed to interact with the Autodesk BIM 360
 
 To use the APSTooler toolkit, follow these steps:
 
-1. install using `pip install APSTooler`
+1. install using `%pip install --upgrade APSTooler`
 2. Add a config.json file and define `APS Client ID`  and `APS Client Secret`
 
 ## Usage
