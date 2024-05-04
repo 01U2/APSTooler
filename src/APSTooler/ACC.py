@@ -42,7 +42,21 @@ class ACC:
         hub = hubs_data[0] 
         return hub["id"], hub["attributes"]["name"]
     
-    def get_project_details(self, project_name):
+    def get_project_details(self):
+        hub_id, _ = self.get_hubs() 
+        url = f"{self.host}/project/v1/hubs/{hub_id}/projects"
+        data = self._get(url)
+        
+        project_details = []
+        
+        for project in data:
+            project_details.append((hub_id, project['id'], project['attributes']['name']))
+        
+        return project_details
+
+
+    
+    def _get_project_details(self, project_name):
         hub_id, _ = self.get_hubs() 
         url = f"{self.host}/project/v1/hubs/{hub_id}/projects"
         data = self._get(url)
@@ -55,8 +69,8 @@ class ACC:
             raise ValueError ("The project does not exist")
         return hub_id, project['id'], project['attributes']['name']
     
-    def get_root_folder_id(self): #we expect only one response from  get project details
-        hub_id, project_id, _ = self.get_project_details()
+    def get_root_folder_id(self, project_name): #we expect only one response from  get project details
+        hub_id, project_id, _ = self._get_project_details(project_name)
         url = f"{self.host}/project/v1/hubs/{hub_id}/projects/{project_id}/topFolders"
         response = requests.get(url, headers=self.headers)
         response.raise_for_status()       
@@ -66,8 +80,8 @@ class ACC:
                 return project_id, root_folder['id']            
         raise ValueError("Error getting folder ID")
     
-    def get_folder_details(self, folder_name):
-        project_id, root_folder_id = self.get_root_folder_id()
+    def get_folder_details(self, folder_name, project_name):
+        project_id, root_folder_id = self.get_root_folder_id(project_name)
         url = f"{self.host}/data/v1/projects/{project_id}/folders/{root_folder_id}/contents"
         data = self._get(url)
         item_details = []
@@ -112,8 +126,8 @@ class ACC:
         return folder_details
  
 
-    def get_all_model_details(self, model_name = None):
-        project_id, root_folder_id = self.get_root_folder_id() #gets project id
+    def get_all_model_details(self, project_name, model_name = None):
+        project_id, root_folder_id = self.get_root_folder_id(project_name) #gets project id
         model_desc = self._get_model_desc(project_id, root_folder_id, model_name) ### write code to get the details
         model_details = self._get_model_details(project_id, model_desc)
         return model_details
