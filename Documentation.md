@@ -23,42 +23,34 @@ pip install APSTooler
 ```
 note: config.json is already added to your .gitignore.
 
-## Usage
-
-Import the package and instantiate the `ACC` class:
-
-```python
-from APSTooler import ACC
-```
-
 ## Classes and Methods
 
 ### Auth Class
 
 The `Auth` class handles authentication with the Autodesk Construction Cloud API using OAuth 2.0 client credentials flow. It retrieves access tokens required for accessing protected resources.
 
-#### Method
+### ACC Class
+
+The `ACC` class provides methods for interacting with the Autodesk BIM 360 API.
+
+#### Auth Method
 
 - `auth2leg()`: Performs 2-legged OAuth authentication.
 
 #### Example:
 ```python
-from ACC import Auth
+from APSTooler import Auth, ACC
 	
 # Initialize Auth object
 auth = Auth()
 	
 # Perform 2-legged OAuth authentication
 token = auth.auth2leg()
+docs = ACC(token)
 ```
 - `token`: An optional parameter for providing the access token. If not provided, the toolkit will attempt to authenticate using 2-legged OAuth.
 
-
-### ACC Class
-
-The `ACC` class provides methods for interacting with the Autodesk BIM 360 API.
-
-#### Method
+#### ACC Method
 
 - `get_hubs()`: Retrieves information about hubs associated with the authenticated account.
   example:

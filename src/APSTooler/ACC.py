@@ -42,7 +42,7 @@ class ACC:
         hub = hubs_data[0] 
         return hub["id"], hub["attributes"]["name"]
     
-    def get_project_details(self, project_name = "UK-Roads-TestProject"):
+    def get_project_details(self, project_name):
         hub_id, _ = self.get_hubs() 
         url = f"{self.host}/project/v1/hubs/{hub_id}/projects"
         data = self._get(url)
