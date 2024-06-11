@@ -1,7 +1,7 @@
 """
 ## Disclaimer
 
-The [Your Python Toolkit Name] ("the toolkit") is provided without any warranties. Its use is at your own risk, and the creator accepts no liability for any damages arising from its use. The toolkit is for informational purposes only and should not be considered professional advice. By using the toolkit, you agree to indemnify the creator against any claims or damages. If you do not agree, please refrain from using the toolkit.
+The APSTooler ("the toolkit") is provided without any warranties. Its use is at your own risk, and the creator accepts no liability for any damages arising from its use. The toolkit is for informational purposes only and should not be considered professional advice. By using the toolkit, you agree to indemnify the creator against any claims or damages. If you do not agree, please refrain from using the toolkit.
 
 ## Documentation
 
@@ -138,8 +138,9 @@ class ACC:
         model_details = []
         for item in data:
             if item['type'] == 'folders':
+                # recursive action.
                 model_details.extend(self._get_model_desc(project_id, item['id'], model_name))
-            elif model_name is None or item['attributes']['name'] == model_name:
+            elif model_name is None or item['attributes']['displayName'] == model_name:
                 model_attributes = item['attributes'].get('extension', {})
                 version = model_attributes.get('version', None)
                 description = model_attributes.get('data', {}).get('description', None)
@@ -158,12 +159,11 @@ class ACC:
             model_attributes = {attr['name']: attr['value'] for attr in result.get('customAttributes', [])}
             formatted_result = {
                 'itemUrn': result.get('itemUrn', ''),
-                'name': result.get('name', ''),
-                'title': result.get('title', ''),
-                'description': model_desc[i][3],
-                'Status': model_attributes.get('Status', ''),
-                'Revision Status': model_attributes.get('Revision Status', ''),
-                'Major Revision': model_attributes.get('Major revision', ''),
+                'NAME': result.get('name', ''),
+                'TITLE': result.get('title', ''),
+                'DESCRIPTION': model_desc[i][3], #value derived from the _get_model_desc
+                'STATUS': model_attributes.get('Status', ''),
+                'ACC REVISION NUMBER': result.get('approvalStatus', {}).get('value', ''),
                 'MCHW Series': model_attributes.get('MCHW Series', '')
             }
             model_details.append(formatted_result)

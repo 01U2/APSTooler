@@ -8,3 +8,4 @@ The [Your Python Toolkit Name] ("the toolkit") is provided without any warrantie
 from .Auth import Auth
 from .ACC import ACC
 from .Token import Token
+from .DWG import DWG
