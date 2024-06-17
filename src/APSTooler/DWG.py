@@ -1,12 +1,11 @@
 '''        
-## Disclaimer
+Disclaimer
 The APSTooler ("the toolkit") is provided without any warranties. Its use is at your own risk, and the creator accepts no liability for any damages arising from its use. The toolkit is for informational purposes only and should not be considered professional advice. By using the toolkit, you agree to indemnify the creator against any claims or damages. If you do not agree, please refrain from using the toolkit.
 
-## Documentation
+Documentation
 The code is  interface for interacting with the Autodesk AutoCAD API:
 
-
-The DWG class s used to manage and update custom attributes in AutoCAD DWG files.
+The DWG class is used to manage and update custom attributes in AutoCAD DWG files.
 Attributes
 ----------    
 `dir` : Directory path where the cache JSON file is stored.
@@ -20,7 +19,7 @@ load_cache():
 Reads and returns the content of the cache JSON file.
 
 update_att(attributes):
-Updates custom attributes in the DWG files based on the provided attributes.
+Updates custom attributes in the DWG files based on the provided attributes, attributes are to be in json format. The class ACC has methods to derive the attributes from ACC
 
 _update_custom_atts(file_path, item_atts):
 Internal method to update custom attributes in a specific DWG file.
