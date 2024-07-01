@@ -21,7 +21,7 @@ pip install APSTooler
   	"APS_CLIENT_SECRET":"your client secret"
 }
 ```
-note: config.json is already added to your .gitignore.
+note: make sure config.json is added to your .gitignore to avoid exposing your secrets.
 
 ## Classes and Methods
 
@@ -86,8 +86,29 @@ docs = ACC(token)
 	```python
 	    models = docs.get_all_model_details()
 	    print models
+
+
 	```
 
+
+#### DWG Method
+
+The DWG class is used to manage and update custom attributes in AutoCAD DWG files.
+Attributes
+----------    
+`dir` : Directory path where the cache JSON file is stored.
+
+##### Methods
+
+- `cache_files(acc_dir)`: Extracts information from DWG files in the specified directory and stores it in a JSON cache file.
+
+- `load_cache()`: Reads and returns the content of the cache JSON file.
+
+- `update_att(attributes)`:
+Updates custom attributes in the DWG files based on the provided attributes, attributes are to be in json format. The class ACC has methods to derive the attributes from ACC
+
+- `_update_custom_atts(file_path, item_atts)`:Internal method to update custom attributes in a specific DWG file.
+'''
 
 ### Conclusion
 
