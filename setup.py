@@ -6,7 +6,7 @@ with open("README.md") as f:
 
 setuptools.setup(
     name="APSTooler",
-    version="0.1.1",
+    version="0.2.0",
     author="Olufemi Akinwumi",
     author_email="cashimawo@gmail.com",
     description="A Python toolkit for Autodesk Platform Services",

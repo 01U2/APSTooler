@@ -9,7 +9,7 @@
 
 
 
-## [0.1.1] - 2024-07-01
+## [0.2.0] - 2024-07-01
 ### Added
 - New feature: User can now get project and Model details recrusively
 - Added documentation for toolkit
